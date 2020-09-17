@@ -5,9 +5,11 @@ $password = "toor";
 $DBname = "testdb";
 
 $connect = new mysqli($servername, $username, $password, $DBname);
-$text = $_GET['text'];
-$header = $_GET['header'];
-$date = $_GET['date'];
+
+$text = $_POST['text'];
+$header = $_POST['header'];
+$date = $_POST['date'];
+
 
 $sql = "INSERT INTO content(id , content, date)
         VALUES ('$header', '$text', '$date')";

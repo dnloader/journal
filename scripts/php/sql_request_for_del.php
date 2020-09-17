@@ -6,10 +6,9 @@ $DBname = "testdb";
 
 $connect = new mysqli($servername,$username,$password,$DBname);
 
-$arrForDel = $_GET['arrForDel'];
-$arrForDel = explode(",",$arrForDel);
-for ($i = 0; $i < count($arrForDel); $i++){
-    $sql = "DELETE FROM content WHERE id='$arrForDel[$i]'";
+for ($i = 0; $i < count($_POST); $i++){
+    $stri =  (String)$i;
+    $sql = "DELETE FROM content WHERE id='$_POST[$stri]'";
     $result = $connect->prepare($sql);
     $result->execute();
 }

@@ -1,10 +1,5 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "toor";
-$DBname = "testdb";
-
-$connect = new mysqli($servername, $username, $password, $DBname);
+include_once "SQL.php";
 
 $sql = "SELECT `id` FROM `content`";
 $result = $connect->query($sql);

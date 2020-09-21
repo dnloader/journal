@@ -1,10 +1,6 @@
 <?php
-$servername = "127.0.0.1";
-$username = "root";
-$password = "toor";
-$DBname = "testdb";
+include_once "SQL.php";
 
-$connect = new mysqli($servername, $username, $password, $DBname);
 $sql = "SELECT * FROM `content` ORDER BY `content`.`date` ASC";
 $result = $connect->query($sql);
 

@@ -10,7 +10,7 @@
               '&header=' + encodeURIComponent(head) +
               '&date=' + encodeURIComponent(date);
 
-      xhttp.open("POST", "scripts/sql_add_notice.php" , true);
+      xhttp.open("POST", "scripts/php/sql_add_notice.php" , true);
       xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
       xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {

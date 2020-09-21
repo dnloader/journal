@@ -1,24 +1,33 @@
-
+    let text = document.createElement("p");
     let getText = document.getElementById("text");
     function showNotice() {
-        if (getText.innerHTML !== "Click on one of these buttons." ) {
-            let contentForms = document.querySelector("#content");
-            if (contentForms.childNodes[3] !== undefined) {
-                for (let i = 3; i < contentForms.childNodes.length; i++) {
-                    document.querySelector("#content").childNodes[i].remove();
-                }
+        let forDel = document.querySelector("#content");
+        if(forDel.childNodes[0] !== undefined) {
+            for (let i = 0; i < forDel.childNodes.length; i++) {
+                forDel.childNodes[i].remove();
+                i--;
             }
-            getText.innerHTML = "Click on one of these buttons.";
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                    text.id = "text";
+                    forDel.appendChild(text);
+                    text.innerHTML = this.responseText;
+            };
+            xhttp.open("GET", "scripts/php/sql_get_notices.php", true);
+            xhttp.send();
 
         } else {
             let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    getText.innerHTML = this.responseText;
+
+                    text.id = "text";
+                    forDel.appendChild(text);
+                    text.innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "scripts/sql_get_notices.php", true);
+            xhttp.open("GET", "scripts/php/sql_get_notices.php", true);
             xhttp.send();
         }
     }

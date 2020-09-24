@@ -19,7 +19,7 @@ function getTime() {
 
     return hours + ":"
     + minutes + ":"
-    + seconds + " "
+    + seconds + "<br>"
      + day + "."
       + month + "."
        + year;

@@ -1,8 +1,8 @@
 <?php
 include_once "SQL.php";
 
-$text = $_POST['text'];
-$header = $_POST['header'];
+$text = htmlspecialchars($_POST['text'], ENT_HTML5);
+$header = htmlspecialchars($_POST['header'], ENT_HTML5);
 $date = $_POST['date'];
 
 

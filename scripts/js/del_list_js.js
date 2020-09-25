@@ -40,8 +40,9 @@
             for (let i = 0; i < localData.content.childNodes.length; i++) {
                 localData.content.childNodes[i].remove();
                 i--;
-                xhr();
+
             }
+            xhr();
         } else {
             xhr();
         }
@@ -62,6 +63,7 @@
                     let input = document.createElement("input");
                     let br = document.createElement("br");
                     let label = document.createElement("label");
+                    let hr = document.createElement("hr");
                     input.type = "checkbox";
                     input.id = i + "";
                     input.name = "del";
@@ -71,11 +73,12 @@
 
                     form.appendChild(input);
                     form.appendChild(label);
-                    form.appendChild(br);
+                    form.appendChild(hr);
                 }
                 let submit = document.createElement("input");
                 submit.type = "submit";
                 submit.value = "delete";
+                submit.className = "submit";
                 submit.onclick = del;
                 form.enctype = "multipart/form-data";
                 form.method = "POST";

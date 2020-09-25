@@ -12,17 +12,17 @@
         makeForm : function () {
             this.form.method = "GET";
             this.form.name = "add-notice";
+            this.form.id = "add-notice";
             this.content.appendChild(constructForm.form);
             this.form.appendChild(constructForm.makeHeader());
             this.form.appendChild(constructForm.makeTextArea());
-            this.form.appendChild(constructForm.br);
             this.form.appendChild(constructForm.makeSubmit());
         },
 
         makeSubmit : function () {
             this.input.value = "Add";
             this.input.type = "submit";
-            this.input.style.marginTop = "10px";
+            this.input.className = "submit";
             this.input.name = "name";
             this.input.onclick = sendText;
             return this.input;
@@ -31,14 +31,17 @@
         makeHeader : function () {
             this.header.type = "text";
             this.header.name = "head";
-            this.header.value = "header";
+            this.header.placeholder = "Input a title";
+            this.header.id = "headForm";
+            this.header.required = true;
             return this.header;
         },
 
         makeTextArea : function () {
             this.textArea.name = "inText";
             this.textArea.rows = "10";
-            this.textArea.style.width = "90%";
+            this.textArea.placeholder = "Input some text";
+            this.textArea.required = true;
             return this.textArea;
         }
 

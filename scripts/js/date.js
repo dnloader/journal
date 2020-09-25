@@ -25,8 +25,14 @@ function getTime() {
        + year;
 }
 
-dateId.innerHTML = getTime();
+let formatTime = function() {
+    let result = getTime().split(" ");
+    result.splice(1,0,"<br>");
+    result = result.join(" ");
+    return result;
+}
+dateId.innerHTML = formatTime();
 let timerId = setTimeout(function run() {
-  dateId.innerHTML = getTime();
+  dateId.innerHTML = formatTime();
   timerId = setTimeout(run,1000);
 }, 1000);
